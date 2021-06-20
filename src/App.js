@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React from 'react'
+import BoxContainer from './BoxContainer'
 
 function App() {
+
+  const configJson = {
+    'type': 'container',
+    'items': [
+      {
+        'type': 'box',
+        'color': 'orange'
+      },
+      {
+        'type': 'container',
+        'items': [
+          {
+            'type': 'box',
+            'color': 'green',
+          },
+          {
+            'type': 'box',
+            'color': 'red',
+          },
+          {
+            'type': 'container',
+            'items': [
+              {
+                'type': 'container',
+                'items': [
+                  {
+                    'type': 'box',
+                    'color': 'pink'
+                  }
+                ]
+              },
+            ]
+          }
+        ]
+      }
+    ],
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BoxContainer jsonConfig={configJson} />
     </div>
   );
 }
